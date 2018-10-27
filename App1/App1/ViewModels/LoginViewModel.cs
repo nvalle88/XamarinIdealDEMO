@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using App1.Domain.Utils;
+using App1.Helpers;
 using App1.Services;
 using App1.Views;
 using GalaSoft.MvvmLight.Command;
@@ -72,13 +73,20 @@ namespace App1.ViewModels
 
 
 
+
+
+
+
+        #endregion
+
+        #region Metodos
         private async void Login()
         {
             this.IsRunning = true;
             this.IsEnabled = false;
             if (string.IsNullOrEmpty(Email))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Debe ingresar Email", "Aceptar");
+                await Application.Current.MainPage.DisplayAlert(Languages.Aceptar, Languages.ValidacionEmail,Languages.Aceptar);
                 this.IsRunning = false;
                 this.IsEnabled = true;
                 return;
@@ -92,7 +100,7 @@ namespace App1.ViewModels
                 return;
             }
 
-            var conexion =await apiService.CheckConnection();
+            var conexion = await apiService.CheckConnection();
             if (!conexion.IsSuccess)
             {
                 this.IsRunning = false;
@@ -101,12 +109,12 @@ namespace App1.ViewModels
                 return;
             }
 
-            var token = await apiService.GetToken(Global.UrlBase,this.Email,this.Contrasena);
-            if (token==null)
+            var token = await apiService.GetToken(Global.UrlBase, this.Email, this.Contrasena);
+            if (token == null)
             {
                 this.IsRunning = false;
                 this.IsEnabled = true;
-                await Application.Current.MainPage.DisplayAlert("Error","Ha ocurrido un error, intente de nuevo", "Aceptar");
+                await Application.Current.MainPage.DisplayAlert("Error", "Ha ocurrido un error, intente de nuevo", "Aceptar");
                 return;
             }
 
@@ -125,9 +133,6 @@ namespace App1.ViewModels
             return;
 
         }
-
-
-
         #endregion
     }
 }

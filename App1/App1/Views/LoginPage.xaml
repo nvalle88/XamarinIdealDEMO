@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App1.Views.LoginPage"
+             xmlns:i18n="clr-namespace:App1.Helpers"
              BindingContext="{Binding Main,Source={StaticResource Locator}}"
              NavigationPage.HasNavigationBar="False"
              Title="Mi aplicación"
@@ -24,7 +25,7 @@
                     <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Contrasena,Mode=TwoWay}"  IsPassword="True" Placeholder="Entre su contraseña"></Entry>
                 </Grid>
                 <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                    <Label Text="Recordarme" HorizontalOptions="StartAndExpand" VerticalOptions="Center"></Label>
+                    <Label Text="{i18n:Translate Recuerdame}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"></Label>
                     <Switch IsToggled="{Binding Recuerdame,Mode=TwoWay}" HorizontalOptions="End"  ></Switch>
                 </StackLayout>
 
