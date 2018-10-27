@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="App1.Views.PaisPage"
+             Title="Información">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ffimageloadingsvg:SvgImageSourceConverter 
+                x:Key="SvgImageSourceConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+
+            <StackLayout Padding="5">
+                <Frame Margin="10" CornerRadius="20" HasShadow="True" BackgroundColor="White">
+                    <ffimageloading:CachedImage 
+                            Source="{Binding Pais.Flag, Converter={StaticResource SvgImageSourceConverter}}">
+                    </ffimageloading:CachedImage>
+                </Frame>
+                <Frame Margin="10" CornerRadius="20" HasShadow="True" BackgroundColor="White">
+                    <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                       
+                        <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                         FontSize="Medium"
+                        Text="Capital:"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="0"
+                         FontSize="Medium"
+                        FontAttributes="Bold"
+                        Text="{Binding  Pais.Capital}"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="1"
+                         FontSize="Medium"
+                        Text="Population:"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="1"
+                         FontSize="Medium"
+                        FontAttributes="Bold"
+                        Text="{Binding  Pais.Population, StringFormat='{0:N0}'}"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="2"
+                         FontSize="Medium"
+                        Text="Area:"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="2"
+                         FontSize="Medium"
+                        FontAttributes="Bold"
+                        Text="{Binding  Pais.Area, StringFormat='{0:N0}'}"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="3"
+                         FontSize="Medium"
+                        Text="Alpha Code 2:"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="3"
+                         FontSize="Medium"
+                        FontAttributes="Bold"
+                        Text="{Binding  Pais.Alpha2Code}"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="4"
+                         FontSize="Medium"
+                        Text="Alpha Code 3:"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="4"
+                         FontSize="Medium"
+                        FontAttributes="Bold"
+                        Text="{Binding  Pais.Alpha3Code}"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="5"
+                         FontSize="Medium"
+                        Text="Region:"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="5"
+                         FontSize="Medium"
+                        FontAttributes="Bold"
+                        Text="{Binding  Pais.Region}"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="6"
+                         FontSize="Medium"
+                        Text="Subregion:"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="6"
+                         FontSize="Medium"
+                        FontAttributes="Bold"
+                        Text="{Binding  Pais.Subregion}"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="7"
+                         FontSize="Medium"
+                        Text="Demonym:"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="7"
+                         FontSize="Medium"
+                        FontAttributes="Bold"
+                        Text="{Binding  Pais.Demonym}"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="8"
+                         FontSize="Medium"
+                        Text="GINI:"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="8"
+                         FontSize="Medium"
+                        FontAttributes="Bold"
+                        Text="{Binding  Pais.Gini, StringFormat='{0:N2}'}"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="9"
+                         FontSize="Medium"
+                        Text="Native Name:"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="9"
+                         FontSize="Medium"
+                        FontAttributes="Bold"
+                        Text="{Binding  Pais.NativeName}"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="10"
+                         FontSize="Medium"
+                        Text="Numeric Code:"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="10"
+                         FontSize="Medium"
+                        FontAttributes="Bold"
+                        Text="{Binding  Pais.NumericCode}"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="11"
+                         FontSize="Medium"
+                        Text="CIOC:"
+                        TextColor="Black">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="11"
+                         FontSize="Medium"
+                        FontAttributes="Bold"
+                        Text="{Binding  Pais.Cioc}"
+                        TextColor="Black">
+                    </Label>
+                </Grid>
+                </Frame>
+            </StackLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

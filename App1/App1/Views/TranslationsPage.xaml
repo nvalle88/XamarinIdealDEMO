@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             x:Class="App1.Views.TranslationsPage"
+             Title="Traslation">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="5">
+            <Frame Margin="10" CornerRadius="20" HasShadow="True" BackgroundColor="White">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="0"
+                        FontSize="Medium"
+                    Text="Germany:"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    FontAttributes="Bold"
+                     FontSize="Medium"
+                    Text="{Binding  Translations.Germany}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="1"
+                     FontSize="Medium"
+                    Text="Spanish:"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="1"
+                    Grid.Row="1"
+                     FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="{Binding  Translations.Spanish}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="2"
+                         FontSize="Medium"
+                    Text="French:"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="1"
+                    Grid.Row="2"
+                         FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="{Binding  Translations.French}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="3"
+                         FontSize="Medium"
+                    Text="Japanese:"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="1"
+                    Grid.Row="3"
+                         FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="{Binding  Translations.Japanese}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="4"
+                         FontSize="Medium"
+                    Text="Italian:"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="1"
+                    Grid.Row="4"
+                         FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="{Binding  Translations.Italian}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="5"
+                         FontSize="Medium"
+                    Text="Brazilian:"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="1"
+                    Grid.Row="5"
+                         FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="{Binding  Translations.Brazilian}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="6"
+                         FontSize="Medium"
+                    Text="Portuges:"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="1"
+                    Grid.Row="6"
+                         FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="{Binding  Translations.Portuges}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="7"
+                         FontSize="Medium"
+                    Text="Dutch:"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="1"
+                    Grid.Row="7"
+                         FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="{Binding  Translations.Dutch}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="8"
+                         FontSize="Medium"
+                    Text="Croatian:"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="1"
+                    Grid.Row="8"
+                         FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="{Binding  Translations.Croatian}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="9"
+                         FontSize="Medium"
+                    Text="Persian:"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    Grid.Column="1"
+                    Grid.Row="9"
+                         FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="{Binding  Translations.Persian}"
+                    TextColor="Black">
+                    </Label>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
