@@ -6,6 +6,7 @@
     using System.Net.Http.Headers;
     using System.Text;
     using System.Threading.Tasks;
+    using App1.Common.Models;
     using App1.Models;
     using Newtonsoft.Json;
     using Plugin.Connectivity;

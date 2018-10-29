@@ -49,6 +49,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -233,11 +234,26 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Db\Model1.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810290012095_Primera.cs" />
+    <Compile Include="Migrations\201810290012095_Primera.Designer.cs">
+      <DependentUpon>201810290012095_Primera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810290035516_CreandoFcturaCliete.cs" />
+    <Compile Include="Migrations\201810290035516_CreandoFcturaCliete.Designer.cs">
+      <DependentUpon>201810290035516_CreandoFcturaCliete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810290122178_probndo.cs" />
+    <Compile Include="Migrations\201810290122178_probndo.Designer.cs">
+      <DependentUpon>201810290122178_probndo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -337,6 +353,30 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810290012095_Primera.resx">
+      <DependentUpon>201810290012095_Primera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810290035516_CreandoFcturaCliete.resx">
+      <DependentUpon>201810290035516_CreandoFcturaCliete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810290122178_probndo.resx">
+      <DependentUpon>201810290122178_probndo.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\App1.Domain\App1.Domain.csproj">
+      <Project>{CEBE92E2-0097-499F-9840-118DDA0F0172}</Project>
+      <Name>App1.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{7BF12B32-1487-4110-9C10-B7AFBE1FB099}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

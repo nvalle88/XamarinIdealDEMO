@@ -4,7 +4,7 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-             x:Class="App1.Views.PaisesPage"
+             x:Class="App1.Views.ClientesPage"
              Title="Paises"
              BackgroundColor="Silver">
     <ContentPage.Resources>
@@ -21,7 +21,7 @@
                 HasUnevenRows="true" 
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
-                ItemsSource="{Binding Paises}"
+                ItemsSource="{Binding Clientes}"
                 SeparatorVisibility="None"
                 RefreshCommand="{Binding RefreshCommand}">
                 <ListView.ItemTemplate>
@@ -30,33 +30,38 @@
                             <Frame Margin="5" CornerRadius="20" HasShadow="True" BackgroundColor="White">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
-                                        Command="{Binding DetallePaisCommand}">
+                                        Command="{Binding DetalleClienteCommand}">
                                     </TapGestureRecognizer>
                                 </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <ffimageloading:CachedImage  Margin="10"
+                                    <StackLayout Padding="5"
                                         Grid.Column="0"
-                                        HeightRequest="30"
-                                        WidthRequest="60"
-                                        
-                                        Source="{Binding Flag, Converter={StaticResource SvgImageSourceConverter}}">
-                                    </ffimageloading:CachedImage>
-                                    <StackLayout 
-                                        Grid.Column="1"
-                                        VerticalOptions="Center">
+                                        Grid.Row="0"
+                                        Orientation="Horizontal"
+                                        VerticalOptions="StartAndExpand">
                                         <Label 
                                             FontAttributes="Bold"
                                             FontSize="Medium" 
-                                            Text="{Binding Name}"
+                                            Text="{Binding Nombre}"
                                             TextColor="Black">
                                         </Label>
                                         <Label 
-                                            Text="{Binding Capital}"
+                                             FontAttributes="Bold"
+                                            FontSize="Medium"
+                                            Text="{Binding Apellido}"
+                                            TextColor="Black">
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Column="0"
+                                        Grid.Row="1"
+                                        VerticalOptions="StartAndExpand">
+                                        <Label 
+                                            Text="{Binding Direccion}"
                                             TextColor="Black">
                                         </Label>
                                     </StackLayout>

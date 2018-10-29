@@ -129,7 +129,11 @@ namespace App1.ViewModels
 
             this.IsRunning = false;
             this.IsEnabled = true;
-            await Application.Current.MainPage.Navigation.PushAsync(new PaisesPage());
+            Settings.TokenType = token.TokenType;
+            Settings.AccessToken = token.AccessToken;
+            Settings.UserASP = token.UserName;
+            Settings.IsRemembered = this.Recuerdame;
+            Application.Current.MainPage = new MasterPage();
             return;
 
         }

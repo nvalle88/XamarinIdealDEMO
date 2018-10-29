@@ -1,32 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using App1.Common.Models;
 using App1.Models;
 using App1.Views;
 using Xamarin.Forms;
 
 namespace App1.ViewModels
 {
-   public class PaisViewModel
+   public class ClienteViewModel
     {
-        public Pais Pais { get; set; }
-        public PaisViewModel(Pais pais)
+        public Cliente Cliente { get; set; }
+        public ClienteViewModel(Cliente cliente)
         {
-            this.Pais = pais;
+            this.Cliente = cliente;
         }
-
-      
-        #region Propiedades
-
-       
-        #endregion
-
-
-        #region MyRegion
-
-
-
-        #endregion
-
     }
 }

@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using App1.Common.Models;
 using App1.Models;
 
 namespace App1.ViewModels
 {
     class ListaLenguageViewModel
     {
-        public List<Language> Languages { get; set; }
+        public List<Factura> Facturas { get; set; }
 
-        public ListaLenguageViewModel(List<Language> lista)
+        public ListaLenguageViewModel(List<Factura> facturas)
         {
-            Languages = lista;
+            Facturas = facturas;
         }
     }
 }

@@ -68,10 +68,11 @@ namespace App1.API.Controllers
 
         // POST api/Account/Logout
         [Route("Logout")]
+        
         public IHttpActionResult Logout()
         {
             Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
-            return Ok();
+            return Ok(true);
         }
 
         // GET api/Account/ManageInfo?returnUrl=%2F&generateState=true
