@@ -1,4 +1,9 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using App1.Common.Models;
+using App1.Domain.ModelsResult;
 using App1.Domain.Utils;
 using App1.Helpers;
 using App1.Services;
@@ -133,8 +138,48 @@ namespace App1.ViewModels
             Settings.AccessToken = token.AccessToken;
             Settings.UserASP = token.UserName;
             Settings.IsRemembered = this.Recuerdame;
+            Task.Run(() => this.Sincronizar()).Wait();
             Application.Current.MainPage = new MasterPage();
             return;
+        }
+
+        public async Task Sincronizar()
+        {
+            var a = await apiService.CheckConnection();
+            if (a.IsSuccess)
+            {
+                await this.EliminarTodosClientes();
+                await this.CargarClientes();
+                await this.InsertarTodosClientes();
+            }
+        }
+
+
+        private async Task InsertarTodosClientes()
+        {
+            var lista = App.ListaClientes.Select(x => new ClienteSqLite { Apellido = x.Apellido, ClienteId = x.ClienteId, Direccion = x.Direccion, Nombre = x.Nombre }).ToList();
+            App.ListaClienteSqLite = lista;
+            await App.dataService.Insert(App.ListaClienteSqLite);
+            Settings.SincronizacionCompleta = true;
+        }
+
+        private async Task EliminarTodosClientes()
+        {
+            await App.dataService.EliminarTodosClientes();
+        }
+
+        private async Task CargarClientes()
+        {
+            var response = await apiService.GetList<Cliente>(Global.UrlBase, Global.RoutePrefix, Global.ListarClientes, Settings.TokenType, Settings.AccessToken);
+
+            if (!response.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Aceptar");
+                Application.Current.MainPage = new NavigationPage(new LoginPage());
+                return;
+            }
+
+            App.ListaClientes = (List<Cliente>)response.Result;
 
         }
         #endregion

@@ -5,7 +5,7 @@
              xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Class="App1.Views.ClientesPage"
-             Title="Paises"
+             Title="Clientes"
              BackgroundColor="Silver">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -15,7 +15,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout >
-            <SearchBar BackgroundColor="Silver" Placeholder="Buscar..." Text="{Binding Filtro,Mode=TwoWay}" SearchCommand="{Binding BuscarCommand}"></SearchBar>
+            <SearchBar BackgroundColor="Silver" Margin="10" HeightRequest="50" Placeholder="Buscar..." Text="{Binding Filtro,Mode=TwoWay}" SearchCommand="{Binding BuscarCommand}"></SearchBar>
             <ListView 
                 BackgroundColor="Silver"
                 HasUnevenRows="true" 
@@ -38,7 +38,7 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <StackLayout Padding="5"
+                                    <StackLayout Padding="2"
                                         Grid.Column="0"
                                         Grid.Row="0"
                                         Orientation="Horizontal"

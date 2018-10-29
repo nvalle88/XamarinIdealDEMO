@@ -24,6 +24,8 @@ namespace App1
 
         public static LoginPage LoginPage { get; set; }
 
+        public static MenuPage MenuPage { get; set; }
+
         public  App()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace App1
             dataService = new DataService();
             apiService = new ApiService();
             ListaClientes = new List<Cliente>();
+            
             if (Settings.IsRemembered && !string.IsNullOrEmpty(Settings.UserASP))
             {
                 
@@ -49,7 +52,7 @@ namespace App1
         
 
 
-        private async Task Sincronizar()
+        public async Task Sincronizar()
         {
             
 
@@ -58,15 +61,9 @@ namespace App1
             {
                 await this.EliminarTodosClientes();
                 await this.CargarClientes();
-                this.ConvertirClientesSqlLiteDelService();
                 await this.InsertarTodosClientes();
 
             }
-        }
-
-        private void ConvertirClientesSqlLiteDelService()
-        {
-            
         }
 
         private async Task InsertarTodosClientes()

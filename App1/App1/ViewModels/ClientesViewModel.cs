@@ -62,7 +62,8 @@ namespace App1.ViewModels
         {
             this.IsRefreshing = true;
             Task.Run(() => this.CargarClientes()).Wait();
-            
+            this.IsRefreshing = false;
+
         }
 
 

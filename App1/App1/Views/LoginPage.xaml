@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App1.Views.LoginPage"
              xmlns:i18n="clr-namespace:App1.Helpers"
-             BindingContext="{Binding Main,Source={StaticResource Locator}}"
+            
              NavigationPage.HasNavigationBar="False"
              Title="Mi aplicación"
              BackgroundColor="White">
