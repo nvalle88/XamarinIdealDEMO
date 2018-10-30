@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using App1.Common.Models;
+using App1.Domain.ModelsResult;
 using App1.Models;
 
 namespace App1.ViewModels
 {
-    class ListaLenguageViewModel
+    class ListaFacturasViewModel
     {
-        public List<Factura> Facturas { get; set; }
+        public ObservableCollection<FacturaSqLite> Facturas { get; set; }
 
-        public ListaLenguageViewModel(List<Factura> facturas)
+        public ListaFacturasViewModel(ObservableCollection<FacturaSqLite> facturas)
         {
             Facturas = facturas;
         }

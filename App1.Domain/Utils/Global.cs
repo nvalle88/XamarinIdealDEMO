@@ -12,5 +12,7 @@ namespace App1.Domain.Utils
         public static string RoutePrefix { get { return "/Api"; } set {; } }
 
         public static string ListarClientes { get { return "/Cliente/ListaCliente"; } set {; } }
+
+        public static string ListarFacturas { get { return "/Factura/ListarFacturaPorListaCliente"; } set {; } }
     }
 }

@@ -29,7 +29,7 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <StackLayout Padding="2"
+                                    <StackLayout Padding="1"
                                         Grid.Column="0"
                                         Grid.Row="0"
                                         Orientation="Horizontal"

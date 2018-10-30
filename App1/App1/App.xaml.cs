@@ -20,7 +20,11 @@ namespace App1
         public static ApiService apiService { get; set; }
         public static List<ClienteSqLite> ListaClienteSqLite { get; set; }
 
+        public static List<FacturaSqLite> ListaFacturaSqLite { get; set; }
+
         public static List<Cliente> ListaClientes { get; set; }
+
+        public static List<Factura> ListaFacturas { get; set; }
 
         public static LoginPage LoginPage { get; set; }
 
@@ -34,6 +38,8 @@ namespace App1
             dataService = new DataService();
             apiService = new ApiService();
             ListaClientes = new List<Cliente>();
+            ListaFacturas = new List<Factura>();
+            ListaFacturaSqLite = new List<FacturaSqLite>();
             
             if (Settings.IsRemembered && !string.IsNullOrEmpty(Settings.UserASP))
             {
@@ -63,6 +69,10 @@ namespace App1
                 await this.CargarClientes();
                 await this.InsertarTodosClientes();
 
+                await this.EliminarTodosFactura();
+                await this.CargarFacturas();
+                await this.InsertarTodosFactura();
+
             }
         }
 
@@ -71,12 +81,23 @@ namespace App1
             var lista = ListaClientes.Select(x => new ClienteSqLite { Apellido = x.Apellido, ClienteId = x.ClienteId, Direccion = x.Direccion, Nombre = x.Nombre }).ToList();
             ListaClienteSqLite = lista;
             await dataService.Insert(ListaClienteSqLite);
-            Settings.SincronizacionCompleta = true;
+        }
+
+        private async Task InsertarTodosFactura()
+        {
+            var lista = ListaFacturas.Select(x => new FacturaSqLite { FacturaId = x.FacturaId, ClienteId = x.ClienteId, Fecha = x.Fecha,Valor=x.Valor, Nombre = x.Nombre }).ToList();
+            ListaFacturaSqLite = lista;
+            await dataService.Insert(ListaFacturaSqLite);
         }
 
         private async Task EliminarTodosClientes()
         {
             await dataService.EliminarTodosClientes();
+        }
+
+        private async Task EliminarTodosFactura()
+        {
+            await dataService.EliminarTodosFactura();
         }
 
         private async Task CargarClientes()
@@ -92,6 +113,21 @@ namespace App1
 
             ListaClientes=(List<Cliente>)response.Result;
             
+        }
+
+
+        private async Task CargarFacturas()
+        {
+            var response = await apiService.GetList<Factura>(Global.UrlBase, Global.RoutePrefix, Global.ListarFacturas, Settings.TokenType, Settings.AccessToken,ListaClientes);
+
+            if (!response.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Aceptar");
+                Application.Current.MainPage = new NavigationPage(new LoginPage());
+                return;
+            }
+            ListaFacturas = (List<Factura>)response.Result;
+
         }
 
         protected override void OnStart()

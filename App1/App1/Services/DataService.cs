@@ -28,7 +28,7 @@ namespace App1.Services
             try
             {
                 await connection.CreateTableAsync<ClienteSqLite>().ConfigureAwait(false);
-               // await connection.CreateTableAsync<FacturaSqLite>().ConfigureAwait(false);
+                await connection.CreateTableAsync<FacturaSqLite>().ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -76,9 +76,28 @@ namespace App1.Services
             return list;
         }
 
+        public async Task<List<FacturaSqLite>> ListarFacturas()
+        {
+            var query = await this.connection.QueryAsync<Factura>("select * from [FacturaSqLite]");
+            var array = query.ToArray();
+            var list = array.Select(c => new FacturaSqLite
+            {
+                Nombre = c.Nombre,
+                FacturaId = c.FacturaId,
+                Fecha=c.Fecha,
+                ClienteId = c.ClienteId,
+            }).ToList();
+            return list;
+        }
+
         public async Task EliminarTodosClientes()
         {
             var query = await this.connection.QueryAsync<ClienteSqLite>("delete from [ClienteSqLite]");
+        }
+
+        public async Task EliminarTodosFactura()
+        {
+            var query = await this.connection.QueryAsync<FacturaSqLite>("delete from [FacturaSqLite]");
         }
     }
 }

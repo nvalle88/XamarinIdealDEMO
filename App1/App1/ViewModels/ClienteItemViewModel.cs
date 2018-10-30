@@ -18,7 +18,7 @@ namespace App1.ViewModels
 
         private async void DetalleCliente()
         {
-            await App.Navigator.PushAsync(new PaisTabPage(cliente));
+            await App.Navigator.PushAsync(new ClienteTabPage(cliente));
         }
     }
 }

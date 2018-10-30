@@ -249,6 +249,55 @@
             }
         }
 
+
+        public async Task<Response> GetList<T>(
+            string urlBase,
+            string servicePrefix,
+            string controller,
+            string tokenType,
+            string accessToken,
+            object lista)
+        {
+            try
+            {
+                var request = JsonConvert.SerializeObject(lista);
+                var content = new StringContent(
+                    request, Encoding.UTF8,
+                    "application/json");
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue(tokenType, accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var url = string.Format("{0}{1}", servicePrefix, controller);
+                var response = await client.PostAsync(url, content);
+                var result = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var error = JsonConvert.DeserializeObject<Response>(result);
+                    error.IsSuccess = false;
+                    return error;
+                }
+
+                var newRecord = JsonConvert.DeserializeObject<List<T>>(result);
+
+                return new Response
+                {
+                    IsSuccess = true,
+                    Message = "Record added OK",
+                    Result = newRecord,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
+        }
+
         public async Task<Response> Post<T>(
             string urlBase,
             string servicePrefix,

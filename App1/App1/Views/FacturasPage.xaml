@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App1.Views.LenguajePage"
+             x:Class="App1.Views.FacturasPage"
              BackgroundColor="Silver"
              Title="Idiomas">
     <ContentPage.Content>
@@ -9,7 +9,7 @@
             <ListView 
                 BackgroundColor="Silver"
                 HasUnevenRows="true" 
-                ItemsSource="{Binding Languages}"
+                ItemsSource="{Binding Facturas}"
                 SeparatorVisibility="None"
                >
                 <ListView.ItemTemplate>
@@ -19,21 +19,38 @@
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
                                     <StackLayout 
-                                        Grid.Column="0"
-                                        VerticalOptions="Center">
+                                        Grid.Column="0" Grid.Row="0"
+                                        VerticalOptions="Center" Orientation="Horizontal">
                                         <Label 
                                             FontAttributes="Bold"
+                                            HorizontalOptions="StartAndExpand"
                                             FontSize="Medium" 
-                                            Text="{Binding Name}"
+                                            Text="{Binding Nombre}"
                                             TextColor="Black">
                                         </Label>
-                                        <Label 
-                                            Text="{Binding NativeName}"
+                                        <Label  
+                                            FontAttributes="Bold"
+                                            HorizontalOptions="End"
+                                            FontSize="Medium" 
+                                            Text="{Binding Valor}"
                                             TextColor="Black">
                                         </Label>
                                     </StackLayout>
+                                    <StackLayout Grid.Column="0" Grid.Row="1" >
+                                        <Label 
+                                            Text="{Binding Fecha, StringFormat='{0:MMMM d, yyyy}'}"
+                                            TextColor="Black">
+                                        </Label>
+                                    </StackLayout>
+                                    <Image 
+                                        Grid.Column="2"
+                                        Grid.RowSpan="2"
+                                        HorizontalOptions="End" 
+                                        Source="ic_chevron_right">
+                                    </Image>
                                 </Grid>
                             </Frame>
                         </ViewCell>
